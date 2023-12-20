@@ -1053,6 +1053,9 @@
 			isa = PBXGroup;
 			children = (
 				4C1DC8531B68908E00476DE3 /* AFError.swift */,
+				318702F12B0AEE3700C10A8C /* DataRequest.swift */,
+				318702FD2B0AEF1D00C10A8C /* DataStreamRequest.swift */,
+				318703032B0AEF4B00C10A8C /* DownloadRequest.swift */,
 				319917A9209CDCB000103A19 /* HTTPHeaders.swift */,
 				31727417218BAEC90039FFCC /* HTTPMethod.swift */,
 				4CB928281C66BFBC00CE5F08 /* Notifications.swift */,
@@ -1060,16 +1063,13 @@
 				4CE2724E1AF88FB500F1D59A /* ParameterEncoding.swift */,
 				3191B5741F5F53A6003960A8 /* Protected.swift */,
 				31991790209CDA7F00103A19 /* Request.swift */,
-				318702EB2B0AEDBB00C10A8C /* WebSocketRequest.swift */,
-				318702F12B0AEE3700C10A8C /* DataRequest.swift */,
-				318702F72B0AEEE400C10A8C /* UploadRequest.swift */,
-				318702FD2B0AEF1D00C10A8C /* DataStreamRequest.swift */,
-				318703032B0AEF4B00C10A8C /* DownloadRequest.swift */,
 				319917A4209CDAC400103A19 /* RequestTaskMap.swift */,
 				31991791209CDA7F00103A19 /* Response.swift */,
 				31991792209CDA7F00103A19 /* Session.swift */,
 				31991793209CDA7F00103A19 /* SessionDelegate.swift */,
+				318702F72B0AEEE400C10A8C /* UploadRequest.swift */,
 				31D83FCD20D5C29300D93E47 /* URLConvertible+URLRequestConvertible.swift */,
+				318702EB2B0AEDBB00C10A8C /* WebSocketRequest.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
