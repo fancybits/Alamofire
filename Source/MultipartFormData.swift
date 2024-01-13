@@ -24,8 +24,9 @@
 
 import Foundation
 
-#if os(iOS) || os(watchOS) || os(tvOS)
+#if os(iOS) || os(watchOS) || os(tvOS) || os(visionOS)
 import MobileCoreServices
+import UniformTypeIdentifiers
 #elseif os(macOS)
 import CoreServices
 #endif
@@ -535,14 +536,17 @@ open class MultipartFormData {
     // MARK: - Private - Mime Type
 
     private func mimeType(forPathExtension pathExtension: String) -> String {
+      if #available(iOS 14, macOS 11, tvOS 14, watchOS 7, visionOS 1, *) {
+        return UTType(filenameExtension: pathExtension)?.preferredMIMEType ?? "application/octet-stream"
+      } else {
         if
-            let id = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension as CFString, nil)?.takeRetainedValue(),
-            let contentType = UTTypeCopyPreferredTagWithClass(id, kUTTagClassMIMEType)?.takeRetainedValue()
-        {
-            return contentType as String
+          let id = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension as CFString, nil)?.takeRetainedValue(),
+          let contentType = UTTypeCopyPreferredTagWithClass(id, kUTTagClassMIMEType)?.takeRetainedValue() {
+          return contentType as String
         }
 
         return "application/octet-stream"
+      }
     }
 
     // MARK: - Private - Content Headers

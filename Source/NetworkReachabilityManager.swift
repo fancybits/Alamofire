@@ -191,7 +191,7 @@ open class NetworkReachabilityManager {
 
         var networkStatus: NetworkReachabilityStatus = .reachable(.ethernetOrWiFi)
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS)
         if flags.contains(.isWWAN) { networkStatus = .reachable(.wwan) }
     #endif
 
